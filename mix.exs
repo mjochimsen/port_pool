@@ -8,6 +8,7 @@ defmodule PortPool.Mixfile do
       elixir: "~> 1.1",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
+      dialyzer: dialyzer,
       deps: deps
     ]
   end
@@ -25,4 +26,12 @@ defmodule PortPool.Mixfile do
   defp deps do
     []
   end
+
+  defp dialyzer do
+    [
+      plt_apps: [:erts, :kernel, :stdlib, :crypto],
+      plt_file: ".local.plt"
+    ]
+  end
+
 end
